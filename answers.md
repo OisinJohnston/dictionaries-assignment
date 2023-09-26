@@ -45,5 +45,53 @@ print(count)
 ```
 
 ## i)
+```py
+count = {}
+sentence = input('enter a sentence: ').split()
 
+for i in sentence:
+    count[i] = count.get(i, 0) + 1
+
+print(count)
+```
+
+## j)
+
+### I
+It prints the key value pair with the highest value.
+
+### II
+The one that is encountered first is printed.
+This may be fixed like this:
+```py
+from collections import Counter
+c = Counter(chars)
+max_value = c.most_common()[0][1]
+max_keys = [i[0] for i in c.most_common() if i[1] == max_value]
+print(f'The most commonly occuring characters are {max_keys} with each occuring {max_value} times')
+```
+
+## k)
+
+I prefer the first implementation, I think it is more pythonic and is simpler too understand and reads like english, which is ideally how all code should be
+
+The code could be altered like so:
+
+```py
+max_key = []
+
+max_value = 0
+
+for k, v in chars.items():
+    if v > max_value:
+        max_value = v
+        max_key = [k]
+    if v == max_value:
+        max_key += [k]
+
+# most_common_keys = [k for k, v in chars.items() if v == max_value]
+print(f'The most commonly occuring characters are {max_key} with each occuring {max_value} times')
+```
+
+## l)
 
